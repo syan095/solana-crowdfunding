@@ -237,6 +237,7 @@ const App = () => {
           await donate(campaign.pubkey);
           getCampaigns();
         }}>Donate</button>
+        { campaign.admin.toString() == walletAddress.toString() && (<>
         <button onClick={async () => {
           await withdraw(campaign.pubkey);
           getCampaigns();
@@ -244,7 +245,7 @@ const App = () => {
         <button onClick={async () => {
           await clearDonations(campaign.pubkey);
           getCampaigns();
-        }}>Clear Donations</button></p>
+        }}>Clear Donations</button></>)}</p>
         <p>Donations: (total: {fromSol(campaign.total)})</p>
         <div className='table-container'>
         <table className='styled-table'>
